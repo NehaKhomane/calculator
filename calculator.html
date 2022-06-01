@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <title>Calculator</title>
+</head>
+<style>
+.container{
+    text-align: center;
+
+}
+table{
+    margin: auto;
+    border-collapse: collapse;
+    width: 300px;
+    height: 400px;
+}
+table, td {
+  border: 2px solid;
+}
+button{
+    font-size: 30px;
+    background: none;
+    width:70px;
+    border: none;
+    height:80px;
+    outline: none;
+}
+textarea{
+    font-size: 30px;
+    width: 300px;
+    height: 50px;
+    border: 2px solid black;
+}
+</style>
+<script>
+    function func(x){
+        document.getElementById("screen").value +=x;
+    }
+    function final(){
+        var x = document.getElementById('screen').value;
+        document.getElementById('screen').value = eval(x);
+    }
+    function reset(){
+        document.getElementById('screen').value='';
+    }
+</script>
+<body>
+    <div class="container">
+        <h1>Calculator</h1>
+        <textarea name="screen" id="screen" readonly></textarea>
+        <div class="calculate">
+        <table>
+            <tr>
+                <td><button onclick="reset()">AC</button></td>
+                <td><button onclick="func(this.value)" value="/">/</button></td>
+                <td><button onclick="func(this.value)" value="*">*</button></td>
+                <td><button onclick="func(this.value)" value="-">-</button></td>
+            </tr>
+
+            <tr>
+                <td><button onclick="func(this.value)" value="7">7</button></td>
+                <td><button onclick="func(this.value)" value="8">8</button></td>
+                <td><button onclick="func(this.value)" value="9">9</button></td>
+                <td rowspan="2"><button style="height:160px;"onclick="func(this.value)" value="+">+</button></td>
+            </tr>
+
+            <tr>
+                <td><button onclick="func(this.value)" value="4">4</button></td>
+                <td><button onclick="func(this.value)" value="5">5</button></td>
+                <td><button onclick="func(this.value)" value="6">6</button></td>
+            </tr>
+
+            <tr>
+                <td><button onclick="func(this.value)" value="1">1</button></td>
+                <td><button onclick="func(this.value)" value="2">2</button></td>
+                <td><button onclick="func(this.value)" value="3">3</button></td>
+                <td rowspan="2"><button style="height:160px;"onclick="final()">=</button></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button style="width:140px;"onclick="func(this.value)" value="0">0</button></td>
+                <td><button onclick="func(this.value)" value=".">.</button></td>
+            </tr>
+
+        </table>
+        </div>
+    </div>
+    
+</body>
+<!-- <script src="logic.js"></script> -->
+</html>
